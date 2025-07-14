@@ -1,0 +1,39 @@
+PROCEDURE dot_product(v1[], v2[], size, ps)
+VAR
+    i : INTEGER
+BEGIN
+    ps ← 0
+    FOR i FROM 0 TO size - 1 DO
+        ps ← ps + v1[i] * v2[i]
+    END_FOR
+END
+ALGORITHM check_orthogonality
+VAR
+    n, size, i, j, ps : INTEGER
+    v1[10], v2[10] : REAL
+BEGIN
+    Write("Enter number of vector pairs:")
+    Read(n)
+    Write("Enter the size (dimension) of vectors:")
+    Read(size)
+
+    FOR i FROM 1 TO n DO
+        Write("Enter vector 1:")
+        FOR j FROM 0 TO size - 1 DO
+            Read(v1[j])
+        END_FOR
+
+        Write("Enter vector 2:")
+        FOR j FROM 0 TO size - 1 DO
+            Read(v2[j])
+        END_FOR
+
+        Call dot_product(v1, v2, size, ps)
+
+        IF ps = 0 THEN
+            Write("Vectors ", i, " are orthogonal.")
+        ELSE
+            Write("Vectors ", i, " are NOT orthogonal.")
+        END_IF
+    END_FOR
+END
