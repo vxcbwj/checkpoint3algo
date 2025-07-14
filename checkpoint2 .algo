@@ -1,0 +1,36 @@
+ALGORITHM checkpoint2
+VAR
+    i , j , sum : INTEGER
+    exist : BOOLEAN
+    array1[3] : INTEGER;
+    array2[5] : INTEGER
+BEGIN
+    array1 = [5 , 10 , 15]:
+    array2 = [10 , 20 , 30 , 15 , 5];
+    sum = 0 ; 
+    FOR i FROM 0 TO 2 STEP 1  DO
+    exist = true;
+        FOR j FROM 0 TO 4 STEP 1  DO
+            IF (array1[i] == array2[j]) THEN
+                exist = False;
+                BREAK
+            END_IF
+        END_FOR
+        IF (exist) THEN
+            sum = sum + array1[i];
+        END_IF
+    END_FOR
+    FOR i FROM 0 TO 4 STEP 1  DO
+    exist = true;
+        FOR j FROM 0 TO 2 STEP 1  DO
+            IF (array2[i] == array1[j]) THEN
+                exist = False;
+                BREAK
+            END_IF
+        END_FOR
+        IF (exist) THEN
+            sum = sum + array2[i];
+        END_IF
+    END_FOR
+    Write("the sum of the distinct numbers of the twp arrays", sum);
+END
